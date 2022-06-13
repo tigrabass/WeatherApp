@@ -1,0 +1,108 @@
+body {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: #3e4a61;
+  min-width: 400px;
+  max-width: 40%;
+}
+
+h1 {
+  margin: 10px;
+  font-size: 36px;
+}
+
+h2 {
+  color: #c24d2c;
+  font-weight: 700;
+}
+
+.todayDate {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px;
+  background-color: #c24d2c;
+  color: #fff;
+  margin: 0;
+}
+
+.search {
+  display: block;
+  margin: 10px auto;
+}
+
+#search-button {
+  display: block;
+  margin: 10px auto;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  border-color: #c8c8c7;
+  border-width: 1px;
+  color: #c24d2c;
+  height: 38px;
+}
+
+.today {
+  display: block;
+  margin: 20px auto;
+}
+
+.todayIcon {
+  font-size: 90px;
+  margin: 10px;
+  color: #c24d2c;
+}
+
+#celsius {
+  text-decoration: none;
+}
+#fahrenheit {
+  text-decoration: none;
+}
+.able {
+  color: #c24d2c;
+}
+
+.unable {
+  color: #c24d2c7b;
+  font-size: 16px;
+}
+
+.All {
+  padding: 15px;
+  margin: 15px;
+  max-width: 600px;
+  background-color: #d9dad754;
+}
+.realFeel {
+  font-size: 14px;
+}
+
+.dayCard {
+  padding: 5px;
+  font-size: 10px;
+  background-color: #3e4a61;
+  border-width: 1px;
+  border-color: #3e4a61;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.dateCard {
+  line-height: 12px;
+}
+
+.cardIcon {
+  font-size: 24px;
+  line-height: 36px;
+  color: #fff;
+  border-color: #c24d2c;
+}
+
+.dayTemp {
+  font-size: 18px;
+}
+
+.nightTemp {
+  font-size: 14px;
+}
