@@ -106,3 +106,9 @@ h2 {
 .nightTemp {
   font-size: 14px;
 }
+
+.gitHubLink {
+  font-size: 10px;
+  margin-top: 10px;
+  color: #3e4a61;
+}
