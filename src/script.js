@@ -46,8 +46,10 @@ function showWeather(response) {
   let currentIcon = response.data.weather[0].icon;
   console.log(currentIcon);
 
+  celsiusTemp = response.data.main.temp;
+
   let currentWeather = document.querySelector("#todayTempDegrees");
-  currentWeather.innerHTML = `${cityTemp}º`;
+  currentWeather.innerHTML = `${cityTemp}`;
   let currentRealFeel = document.querySelector("#todayRealFeel");
   currentRealFeel.innerHTML = `${realFeel}º`;
   let currentDescription = document.querySelector("#description");
@@ -86,12 +88,14 @@ function showLocalWeather(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let currentIcon = response.data.weather[0].icon;
 
+  celsiusTemp = response.data.main.temp;
+
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${currentLocation}`;
   let currentWeatherLocal = document.querySelector("#todayTempDegrees");
-  currentWeatherLocal.innerHTML = `${currentTemperature}º`;
+  currentWeatherLocal.innerHTML = `${currentTemperature}`;
   let currentRealFeel = document.querySelector("#todayRealFeel");
-  currentRealFeel.innerHTML = `${realFeel}º`;
+  currentRealFeel.innerHTML = `${realFeel}`;
   let currentDescription = document.querySelector("#description");
   currentDescription.innerHTML = `${cityWeatherDescription}`;
   let currentWind = document.querySelector("#wind");
@@ -124,21 +128,31 @@ navigator.geolocation.getCurrentPosition(currentLocation);
 
 function changeToFahrenheit(event) {
   event.preventDefault();
-  let degreesCClass = document.querySelector("#celsius");
-  degreesCClass.classList.replace("unable", "able");
-  let degreesFClass = document.querySelector("#fahrenheit");
-  degreesFClass.classList.replace("able", "unable");
-}
+  let currentTemp = document.querySelector("#todayTempDegrees");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  currentTemp.innerHTML = Math.round(fahrenheitTemp);
 
-let celsiusDegrees = document.querySelector("#celsius");
-celsiusDegrees.addEventListener("click", changeToFahrenheit);
+  let degreesCClass = document.querySelector("#celsius");
+  degreesCClass.classList.replace("able", "unable");
+  let degreesFClass = document.querySelector("#fahrenheit");
+  degreesFClass.classList.replace("unable", "able");
+}
 
 function changeToCelsius(event) {
   event.preventDefault();
+  let currentTemp = document.querySelector("#todayTempDegrees");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
+
   let degreesFClass = document.querySelector("#fahrenheit");
-  degreesFClass.classList.replace("unable", "able");
+  degreesFClass.classList.replace("able", "unable");
   let degreesCClass = document.querySelector("#celsius");
-  degreesCClass.classList.replace("able", "unable");
+  degreesCClass.classList.replace("unable", "able");
 }
+
 let fahrenheitDegrees = document.querySelector("#fahrenheit");
-fahrenheitDegrees.addEventListener("click", changeToCelsius);
+fahrenheitDegrees.addEventListener("click", changeToFahrenheit);
+
+let celsiusDegrees = document.querySelector("#celsius");
+celsiusDegrees.addEventListener("click", changeToCelsius);
+
+let celsiusTemp = null;

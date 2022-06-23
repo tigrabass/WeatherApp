@@ -36,6 +36,7 @@ h2 {
 .search {
   display: block;
   margin: 10px auto;
+  max-width: 98%;
 }
 
 #form-search-btn {
@@ -82,6 +83,10 @@ h2 {
 #description {
   font-weight: bold;
   font-size: 16px;
+}
+
+#todays-description {
+  margin-top: 20px;
 }
 .realFeel {
   font-size: small;
