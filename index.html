@@ -32,35 +32,43 @@
         <span class="todayDate"> Friday 20/05 </span>
 
         <div class="row" class="search-group">
-            <div class="col">
+            <div class="col-9">
               <form class="search">
-                <input type="text" class="form-control" placeholder="Search 🔎" id="city-search" autocomplete="Off" autofocus="On">
-              </form>
+                <input type="text" class="form-control" placeholder="Type your city  🔎" id="city-search" autocomplete="Off" autofocus="On">
+               </div>
+              <div class="col-3">  <input type="submit" value="Search"  class="btn btn-primary" id="form-search-btn">
             </div>
-            <div class="col">
-              <button id="search-button">Current location</button>
-            </div>
+            </form>
           </div>
 
 
         <div class="today">
-          <i class="fa-solid fa-sun todayIcon"></i>
-          <h1>Kyiv</h1>
+          <img src="icons/sun-solid.svg" alt="sunny" id="todayIcon">
+          <h1>City</h1>
           <h2>
             <span id="todayTempDegrees">
-            19º 
             </span>
             <a href ="#" class="able" id="celsius">C</a> 
             <vr>
             <a href ="#" class="unable"
             id="fahrenheit">F</a> 
         </h2>
-          <p class="realFeel">Real Feel 
+        <div class="row" >
+          <div class="col-4">
+          <p class="realFeel">Real Feel: 
             <span id="todayRealFeel">
-            18º
             </span> 
             C
           </p>
+          </div>
+          <div class="col-4" class="realFeel">
+            <p class="realFeel">
+          <span id="description"></span></p>  
+          </div>
+          <div class="col-4" class="realFeel">
+            <p class="realFeel">
+            Wind: <span id="wind"></span> km/h</p></div>
+          </div>
         </div>
         
         <div class="row">

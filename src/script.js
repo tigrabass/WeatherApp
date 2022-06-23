@@ -36,16 +36,29 @@ let month = months[now.getMonth()];
 let todayDateTime = document.querySelector(".todayDate");
 todayDateTime.innerHTML = `${day} ${hours}:${minutes}`;
 
+let icons = [""];
+
 function showWeather(response) {
   console.log(response);
   let cityTemp = Math.round(response.data.main.temp);
   let realFeel = Math.round(response.data.main.feels_like);
   let cityWeatherDescription = response.data.weather[0].description;
+  let currentIcon = response.data.weather[0].icon;
+  console.log(currentIcon);
 
   let currentWeather = document.querySelector("#todayTempDegrees");
   currentWeather.innerHTML = `${cityTemp}º`;
   let currentRealFeel = document.querySelector("#todayRealFeel");
   currentRealFeel.innerHTML = `${realFeel}º`;
+  let currentDescription = document.querySelector("#description");
+  currentDescription.innerHTML = `${cityWeatherDescription}`;
+
+  let weatherIcon = document.querySelector("#todayIcon");
+  weatherIcon.setAttribute("alt", `${currentDescription}`);
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${currentIcon}@2x.png`
+  );
 }
 
 function citySearch(event) {
@@ -60,6 +73,7 @@ function citySearch(event) {
   h1.innerHTML = `${userCity.value}`;
   axios.get(`${apiWeatherUrl}`).then(showWeather);
 }
+
 let citySearchForm = document.querySelector(".search");
 citySearchForm.addEventListener("submit", citySearch);
 
@@ -68,6 +82,9 @@ function showLocalWeather(response) {
   let currentTemperature = Math.round(response.data.main.temp);
   let realFeel = Math.round(response.data.main.feels_like);
   let currentLocation = response.data.name;
+  let cityWeatherDescription = response.data.weather[0].description;
+  let windSpeed = Math.round(response.data.wind.speed);
+  let currentIcon = response.data.weather[0].icon;
 
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${currentLocation}`;
@@ -75,6 +92,17 @@ function showLocalWeather(response) {
   currentWeatherLocal.innerHTML = `${currentTemperature}º`;
   let currentRealFeel = document.querySelector("#todayRealFeel");
   currentRealFeel.innerHTML = `${realFeel}º`;
+  let currentDescription = document.querySelector("#description");
+  currentDescription.innerHTML = `${cityWeatherDescription}`;
+  let currentWind = document.querySelector("#wind");
+  currentWind.innerHTML = `${windSpeed}`;
+
+  let weatherIcon = document.querySelector("#todayIcon");
+  weatherIcon.setAttribute("alt", `${currentDescription}`);
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${currentIcon}@2x.png`
+  );
 }
 
 function currentLocation(position) {
@@ -88,11 +116,11 @@ function currentLocation(position) {
   axios.get(`${apiWeatherUrl}`).then(showLocalWeather);
 }
 
-let currentButton = document.querySelector("#search-button");
-currentButton.addEventListener(
-  "click",
-  navigator.geolocation.getCurrentPosition(currentLocation)
-);
+//let currentButton = document.querySelector("#search-button");
+//currentButton.addEventListener(
+// "click",
+navigator.geolocation.getCurrentPosition(currentLocation);
+//);
 
 function changeToFahrenheit(event) {
   event.preventDefault();

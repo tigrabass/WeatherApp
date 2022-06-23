@@ -9,11 +9,19 @@ body {
 h1 {
   margin: 10px;
   font-size: 36px;
+  text-transform: capitalize;
 }
 
 h2 {
   color: #c24d2c;
   font-weight: 700;
+}
+
+.All {
+  padding: 15px;
+  margin: 15px;
+  max-width: 600px;
+  background-color: #d9dad754;
 }
 
 .todayDate {
@@ -30,16 +38,16 @@ h2 {
   margin: 10px auto;
 }
 
-#search-button {
-  display: block;
-  margin: 10px auto;
+#form-search-btn {
+  margin: 10px 15px;
   padding: 5px 10px;
   border-radius: 5px;
   background-color: #fff;
-  border-color: #c8c8c7;
+  border-color: #c24d2c;
   border-width: 1px;
   color: #c24d2c;
   height: 38px;
+  font-size: 14px;
 }
 
 .today {
@@ -47,10 +55,12 @@ h2 {
   margin: 20px auto;
 }
 
-.todayIcon {
-  font-size: 90px;
-  margin: 10px;
-  color: #c24d2c;
+#todayIcon {
+  max-width: 120px;
+  margin: 10px 0;
+  background-color: #c24d2c;
+  padding: 20px;
+  border-radius: 50%;
 }
 
 #celsius {
@@ -59,6 +69,7 @@ h2 {
 #fahrenheit {
   text-decoration: none;
 }
+
 .able {
   color: #c24d2c;
 }
@@ -68,14 +79,14 @@ h2 {
   font-size: 16px;
 }
 
-.All {
-  padding: 15px;
-  margin: 15px;
-  max-width: 600px;
-  background-color: #d9dad754;
+#description {
+  font-weight: bold;
+  font-size: 16px;
 }
 .realFeel {
-  font-size: 14px;
+  font-size: small;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 
 .dayCard {
