@@ -35,8 +35,7 @@ h2 {
 
 .search {
   display: block;
-  margin: 10px auto;
-  max-width: 98%;
+  margin: 10px 2px;
 }
 
 #form-search-btn {
@@ -57,11 +56,8 @@ h2 {
 }
 
 #todayIcon {
-  max-width: 120px;
+  width: 140px;
   margin: 10px 0;
-  background-color: #c24d2c;
-  padding: 20px;
-  border-radius: 50%;
 }
 
 #celsius {

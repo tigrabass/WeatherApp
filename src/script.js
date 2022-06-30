@@ -57,10 +57,7 @@ function showWeather(response) {
 
   let weatherIcon = document.querySelector("#todayIcon");
   weatherIcon.setAttribute("alt", `${currentDescription}`);
-  weatherIcon.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${currentIcon}@2x.png`
-  );
+  weatherIcon.setAttribute("src", `icons/${currentIcon}.svg`);
 }
 
 function citySearch(event) {
@@ -103,10 +100,7 @@ function showLocalWeather(response) {
 
   let weatherIcon = document.querySelector("#todayIcon");
   weatherIcon.setAttribute("alt", `${currentDescription}`);
-  weatherIcon.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${currentIcon}@2x.png`
-  );
+  weatherIcon.setAttribute("src", `icons/${currentIcon}.svg`);
 }
 
 function currentLocation(position) {
