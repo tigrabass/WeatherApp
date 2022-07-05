@@ -31,28 +31,28 @@
 
         <span class="todayDate"> Friday 20/05 </span>
 
-        <div class="row" class="search-group">
+        <form class="search">
+          <div class="row" class="search-group">
             <div class="col-9">
-              <form class="search">
-                <input type="text" class="form-control" placeholder="Type your city  🔎" id="city-search" autocomplete="Off" autofocus="On">
-               </div>
-              <div class="col-3">  <input type="submit" value="Search"  class="btn btn-primary" id="form-search-btn">
+              <input type="text" class="form-control" placeholder="Type your city  🔎" id="city-search" autocomplete="Off" autofocus="On">
             </div>
-            </form>
+            <div class="col-3">  <input type="submit" value="Search"  class="btn btn-primary" id="form-search-btn">
+            </div>
           </div>
-
+        </form>
 
         <div class="today">
           <img src="icons/sun-solid.svg" alt="sunny" id="todayIcon">
           <h1>City</h1>
-          <h2>
-            <span id="todayTempDegrees">
-            </span>
+
+          <div class="line2">
+            <span id="todayTempDegrees"></span>
             <a href ="#" class="able" id="celsius">ºC</a> 
             <vr>
             <a href ="#" class="unable"
             id="fahrenheit">ºF</a> 
-        </h2>
+            </div>
+        
 
         <div class="row" id="todays-description">
           <div class="col-4">
@@ -62,82 +62,20 @@
             C
           </p>
           </div>
+
           <div class="col-4" class="realFeel">
             <p class="realFeel">
           <span id="description"></span></p>  
           </div>
+
           <div class="col-4" class="realFeel">
             <p class="realFeel">
-            Wind: <span id="wind"></span> km/h</p></div>
+            Wind: <span id="wind"></span> km/h</p>
           </div>
-        </div>
+          </div>
         
-        <div class="row">
-          <div class="col-2">
-            <div class="card dayCard">    
-                <span class="dateCard"> 20/05 
-									<br />
-									Fri </span>
-              <i class="fa-solid fa-sun cardIcon"></i>
-              <span class="dayTemp">20ºC</span>
-              <span class="nightTemp">18ºC</span>
-              </span></div>
-          </div>
-          <div class="col-2">
-            <div class="card dayCard">
-              <span class="dateCard"> 21/05 
-									<br />
-									Sat </span>
-              <i class="fa-solid fa-cloud cardIcon"></i>
-              <span class="dayTemp">20ºC</span>
-              <span class="nightTemp">18ºC</span>
-              </span>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card dayCard">
-							<span class="dateCard"> 22/05 
-								<br />
-								Sun </span>
-              <i class="fa-solid fa-cloud-sun cardIcon"></i> 
-              <span class="dayTemp">20ºC</span>
-              <span class="nightTemp">18ºC</span>
-              </span>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card dayCard">
-              <span class="dateCard"> 23/05 
-									<br />
-									Mon </span>
-                <i class="fa-solid fa-cloud-sun-rain cardIcon"></i>              
-                <span class="dayTemp">20ºC</span>
-              <span class="nightTemp">18ºC</span>
-              </span>
-                </div>
-          </div>
-          <div class="col-2">
-            <div class="card dayCard">
-              <span class="dateCard"> 24/05 
-									<br />
-									Tue </span>
-              <i class="fa-solid fa-cloud-showers-heavy cardIcon"></i>
-              <span class="dayTemp">20ºC</span>
-              <span class="nightTemp">18ºC</span>
-              </span>
-              </div>
-          </div>
-          <div class="col-2">
-            <div class="card dayCard">
-                <span class="dateCard"> 25/05 
-										<br />
-										Wed </span>
-              <i class="fa-solid fa-sun cardIcon"></i>
-              <span class="dayTemp">20ºC</span>
-              <span class="nightTemp">18ºC</span>
-              </span>
-              </div>
-          </div>
+        
+        <div id="forecast">
         </div>
         
               <a href="https://github.com/tigrabass/WeatherApp" class="gitHubLink" target="_blank">Git Hub</a>

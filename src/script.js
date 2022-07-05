@@ -36,7 +36,31 @@ let month = months[now.getMonth()];
 let todayDateTime = document.querySelector(".todayDate");
 todayDateTime.innerHTML = `${day} ${hours}:${minutes}`;
 
-let icons = [""];
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Wed", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `     <div class="col-2">
+            <div class="dayCard">    
+                <span class="dateCard"> 20/05 
+									<br />
+									Mon </span>
+              <i class="fa-solid fa-sun cardIcon"></i>
+              <span class="dayTemp">20ºC</span>
+              <span class="nightTemp">18ºC</span>
+              </span>
+              </div>
+              </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function showWeather(response) {
   console.log(response);
@@ -150,3 +174,4 @@ let celsiusDegrees = document.querySelector("#celsius");
 celsiusDegrees.addEventListener("click", changeToCelsius);
 
 let celsiusTemp = null;
+displayForecast();

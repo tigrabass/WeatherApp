@@ -12,9 +12,10 @@ h1 {
   text-transform: capitalize;
 }
 
-h2 {
+.line2 {
   color: #c24d2c;
   font-weight: 700;
+  font-size: 36px;
 }
 
 .All {
@@ -39,15 +40,13 @@ h2 {
 }
 
 #form-search-btn {
-  margin: 10px 15px;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 5px;
   background-color: #fff;
   border-color: #c24d2c;
   border-width: 1px;
   color: #c24d2c;
   height: 38px;
-  font-size: 14px;
 }
 
 .today {
