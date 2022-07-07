@@ -2,7 +2,13 @@ let now = new Date();
 
 let date = now.getDate();
 let hours = now.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
 let minutes = now.getUTCMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 
 let days = [
   "Sunday",
@@ -15,8 +21,6 @@ let days = [
 ];
 let day = days[now.getDay()];
 
-let cardDayDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let cardDayDay = cardDayDays[now.getDay()];
 let months = [
   "01",
   "02",
@@ -36,26 +40,40 @@ let month = months[now.getMonth()];
 let todayDateTime = document.querySelector(".todayDate");
 todayDateTime.innerHTML = `${day} ${hours}:${minutes}`;
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Tue", "Wed", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `     <div class="col-2">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `     <div class="col-2">
             <div class="dayCard">    
-                <span class="dateCard"> 20/05 
-									<br />
-									Mon </span>
-              <i class="fa-solid fa-sun cardIcon"></i>
-              <span class="dayTemp">20ºC</span>
-              <span class="nightTemp">18ºC</span>
+                <span class="dateCard">
+									${formatDay(forecastDay.dt)} </span>
+              <img src="icons/forecast/${
+                forecastDay.weather[0].icon
+              }.svg" class="cardIcon"></img>
+              <span class="dayTemp"> ${Math.round(forecastDay.temp.max)}º</span>
+              <span class="nightTemp"> ${Math.round(
+                forecastDay.temp.min
+              )}º</span>
               </span>
               </div>
               </div>
           `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -68,7 +86,10 @@ function showWeather(response) {
   let realFeel = Math.round(response.data.main.feels_like);
   let cityWeatherDescription = response.data.weather[0].description;
   let currentIcon = response.data.weather[0].icon;
-  console.log(currentIcon);
+  let cityName = response.data.name;
+
+  let h1 = document.querySelector("h1");
+  h1.innerHTML = `${cityName}`;
 
   celsiusTemp = response.data.main.temp;
 
@@ -82,6 +103,8 @@ function showWeather(response) {
   let weatherIcon = document.querySelector("#todayIcon");
   weatherIcon.setAttribute("alt", `${currentDescription}`);
   weatherIcon.setAttribute("src", `icons/${currentIcon}.svg`);
+
+  getForecast(response.data.coord);
 }
 
 function citySearch(event) {
@@ -92,13 +115,22 @@ function citySearch(event) {
   let units = "metric";
   let apiWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity.value}&appid=${apiKey}&units=${units}`;
 
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${userCity.value}`;
   axios.get(`${apiWeatherUrl}`).then(showWeather);
 }
 
 let citySearchForm = document.querySelector(".search");
 citySearchForm.addEventListener("submit", citySearch);
+
+function getForecast(coordinates) {
+  let latitude = coordinates.lat;
+  let longitude = coordinates.lon;
+
+  let apiKey = "9e6ef1596fa5a9f1d6f904d8583ac0a9";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showLocalWeather(response) {
   console.log(response);
@@ -125,6 +157,8 @@ function showLocalWeather(response) {
   let weatherIcon = document.querySelector("#todayIcon");
   weatherIcon.setAttribute("alt", `${currentDescription}`);
   weatherIcon.setAttribute("src", `icons/${currentIcon}.svg`);
+
+  getForecast(response.data.coord);
 }
 
 function currentLocation(position) {
@@ -174,4 +208,3 @@ let celsiusDegrees = document.querySelector("#celsius");
 celsiusDegrees.addEventListener("click", changeToCelsius);
 
 let celsiusTemp = null;
-displayForecast();

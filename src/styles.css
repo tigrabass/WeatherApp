@@ -40,7 +40,7 @@ h1 {
 }
 
 #form-search-btn {
-  padding: 5px 15px;
+  padding: 5px 12px;
   border-radius: 5px;
   background-color: #fff;
   border-color: #c24d2c;
@@ -92,11 +92,13 @@ h1 {
 .dayCard {
   padding: 5px;
   font-size: 10px;
+  line-height: 18px;
   background-color: #3e4a61;
   border-width: 1px;
   border-color: #3e4a61;
   border-radius: 4px;
   color: #fff;
+  min-height: 95px;
 }
 
 .dateCard {
@@ -104,14 +106,12 @@ h1 {
 }
 
 .cardIcon {
-  font-size: 24px;
-  line-height: 36px;
-  color: #fff;
-  border-color: #c24d2c;
+  margin: 5px 0;
 }
 
 .dayTemp {
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .nightTemp {
