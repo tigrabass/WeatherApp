@@ -42,6 +42,7 @@ h1 {
 #form-search-btn {
   padding: 5px 12px;
   border-radius: 5px;
+  margin: 0px 0px;
   background-color: #fff;
   border-color: #c24d2c;
   border-width: 1px;
