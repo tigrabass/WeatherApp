@@ -76,6 +76,7 @@ h1 {
 #description {
   font-weight: bold;
   font-size: normal;
+  white-space: normal;
 }
 
 #todays-description {
