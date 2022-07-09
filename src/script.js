@@ -59,7 +59,7 @@ function addDateForecast(timestamp) {
   ];
   let cardMonth = cardMonths[date.getMonth()];
 
-  return `${cardDate}/${cardMonth}`;
+  return `${cardDate}.${cardMonth}`;
 }
 
 function formatDay(timestamp) {
