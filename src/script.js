@@ -40,6 +40,28 @@ let month = months[now.getMonth()];
 let todayDateTime = document.querySelector(".todayDate");
 todayDateTime.innerHTML = `${day} ${hours}:${minutes}`;
 
+function addDateForecast(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let cardDate = date.getDate();
+  let cardMonths = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+  let cardMonth = cardMonths[date.getMonth()];
+
+  return `${cardDate}/${cardMonth}`;
+}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -59,13 +81,18 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `     <div class="col-2">
-            <div class="dayCard">    
+            <div class="dayCard"> 
+               <span id="dayMonthForCard">${addDateForecast(
+                 forecastDay.dt
+               )}</span>
+               <br />
                 <span class="dateCard">
 									${formatDay(forecastDay.dt)} </span>
               <img src="icons/forecast/${
                 forecastDay.weather[0].icon
               }.svg" class="cardIcon"></img>
               <span class="dayTemp"> ${Math.round(forecastDay.temp.max)}º</span>
+              <br />
               <span class="nightTemp"> ${Math.round(
                 forecastDay.temp.min
               )}º</span>
@@ -96,7 +123,7 @@ function showWeather(response) {
   let currentWeather = document.querySelector("#todayTempDegrees");
   currentWeather.innerHTML = `${cityTemp}`;
   let currentRealFeel = document.querySelector("#todayRealFeel");
-  currentRealFeel.innerHTML = `${realFeel}º`;
+  currentRealFeel.innerHTML = `${realFeel}`;
   let currentDescription = document.querySelector("#description");
   currentDescription.innerHTML = `${cityWeatherDescription}`;
 
@@ -177,34 +204,3 @@ function currentLocation(position) {
 // "click",
 navigator.geolocation.getCurrentPosition(currentLocation);
 //);
-
-function changeToFahrenheit(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#todayTempDegrees");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  currentTemp.innerHTML = Math.round(fahrenheitTemp);
-
-  let degreesCClass = document.querySelector("#celsius");
-  degreesCClass.classList.replace("able", "unable");
-  let degreesFClass = document.querySelector("#fahrenheit");
-  degreesFClass.classList.replace("unable", "able");
-}
-
-function changeToCelsius(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#todayTempDegrees");
-  currentTemp.innerHTML = Math.round(celsiusTemp);
-
-  let degreesFClass = document.querySelector("#fahrenheit");
-  degreesFClass.classList.replace("able", "unable");
-  let degreesCClass = document.querySelector("#celsius");
-  degreesCClass.classList.replace("unable", "able");
-}
-
-let fahrenheitDegrees = document.querySelector("#fahrenheit");
-fahrenheitDegrees.addEventListener("click", changeToFahrenheit);
-
-let celsiusDegrees = document.querySelector("#celsius");
-celsiusDegrees.addEventListener("click", changeToCelsius);
-
-let celsiusTemp = null;
