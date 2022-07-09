@@ -88,9 +88,11 @@ function displayForecast(response) {
                <br />
                 <span class="dateCard">
 									${formatDay(forecastDay.dt)} </span>
+                   <br />
               <img src="icons/forecast/${
                 forecastDay.weather[0].icon
               }.svg" class="cardIcon"></img>
+               <br />
               <span class="dayTemp"> ${Math.round(forecastDay.temp.max)}º</span>
               <br />
               <span class="nightTemp"> ${Math.round(

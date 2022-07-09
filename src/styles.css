@@ -2,20 +2,20 @@ body {
   text-align: center;
   font-family: "Montserrat", sans-serif;
   color: #3e4a61;
-  min-width: 460px;
+  min-width: 360px;
   max-width: 40%;
 }
 
 h1 {
   margin: 10px;
-  font-size: 36px;
+  font-size: xx-large;
   text-transform: capitalize;
 }
 
 .line2 {
   color: #c24d2c;
   font-weight: 700;
-  font-size: 36px;
+  font-size: xx-large;
 }
 
 .All {
@@ -26,7 +26,7 @@ h1 {
 }
 
 .todayDate {
-  font-size: 12px;
+  font-size: normal;
   font-weight: 600;
   padding: 5px;
   background-color: #c24d2c;
@@ -47,7 +47,6 @@ h1 {
   border-color: #c24d2c;
   border-width: 1px;
   color: #c24d2c;
-  height: 38px;
 }
 
 .today {
@@ -56,7 +55,7 @@ h1 {
 }
 
 #todayIcon {
-  width: 140px;
+  width: 40%;
   margin: 10px 0;
 }
 
@@ -69,28 +68,28 @@ h1 {
 
 .able {
   color: #c24d2c;
-  font-size: 24px;
+  font-size: x-large;
   position: relative;
-  top: -8px;
+  top: -6px;
 }
 
 #description {
   font-weight: bold;
-  font-size: 16px;
+  font-size: normal;
 }
 
 #todays-description {
   margin-top: 20px;
 }
 .realFeel {
-  font-size: small;
-  font-weight: 500;
+  font-size: normal;
+  font-weight: 400;
   text-transform: capitalize;
 }
 
 .dayCard {
   padding: 5px;
-  font-size: 10px;
+  font-size: small;
   line-height: 18px;
   background-color: #3e4a61;
   border-width: 1px;
@@ -101,26 +100,26 @@ h1 {
 }
 
 .dateCard {
-  line-height: 12px;
+  line-height: small;
 }
 
 .cardIcon {
   margin: 10px 0;
-  height: 30px;
+  max-height: 30px;
 }
 
 .dayTemp {
-  font-size: 14px;
+  font-size: large;
   font-weight: 600;
 }
 
 .nightTemp {
-  font-size: 14px;
+  font-size: large;
 }
 
 .gitHubLink {
   display: block;
-  font-size: 10px;
+  font-size: xx-small;
   margin-top: 15px;
   color: #3e4a61;
 }
