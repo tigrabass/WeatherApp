@@ -1,9 +1,10 @@
 body {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   color: #3e4a61;
-  min-width: 400px;
-  max-width: 40%;
 }
 
 h1 {
@@ -35,14 +36,13 @@ h1 {
 }
 
 .search {
-  display: block;
-  margin: 10px 2px;
+  margin: 10px 0px;
 }
 
 #form-search-btn {
   padding: 5px 12px;
   border-radius: 5px;
-  margin: 0px 0px;
+  margin: 0px 5px;
   background-color: #fff;
   border-color: #c24d2c;
   border-width: 1px;
@@ -128,4 +128,23 @@ h1 {
   font-size: xx-small;
   margin-top: 15px;
   color: #3e4a61;
+}
+
+@media (max-width: 760px) {
+  .dayCard {
+    font-size: 10px;
+    min-height: 100px;
+  }
+  .dayTemp {
+    font-size: 16px;
+  }
+
+  .nightTemp {
+    font-size: 16px;
+  }
+
+  #search-row {
+    display: flex;
+    justify-content: center;
+  }
 }
